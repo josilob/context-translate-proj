@@ -8,8 +8,8 @@ export class Button extends Component {
 	// it would be the same as typing:
 	// Button.contextType = LanguageContext
 
-	renderSubmit(value) {
-		return value === 'english' ? 'Submit' : 'Voorleggen';
+	renderSubmit(language) {
+		return language === 'english' ? 'Submit' : 'Voorleggen';
 	}
 
 	render() {
@@ -20,7 +20,7 @@ export class Button extends Component {
 				{(color) => (
 					<button className={`ui button ${color}`}>
 						<LanguageContext.Consumer>
-							{(value) => this.renderSubmit(value)}
+							{({ language }) => this.renderSubmit(language)}
 						</LanguageContext.Consumer>
 					</button>
 				)}
